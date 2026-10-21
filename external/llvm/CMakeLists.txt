@@ -12,6 +12,11 @@
 
 cmake_minimum_required(VERSION 3.13.4)
 
+# Build LLVM with the standard it is written for. IGC's C++20 would otherwise
+# be inherited, and libstdc++ 16 rejects LLVM's reverse_iterator<SuccIterator>
+# there (SuccIterator has no default constructor).
+set(CMAKE_CXX_STANDARD 17)
+
 find_package(Python3 REQUIRED)
 find_package(Patch REQUIRED)
 
