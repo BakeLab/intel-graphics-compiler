@@ -296,6 +296,7 @@ else()
 endif()
 
 option(IGC_OPTION__ENABLE_BF16_BIF "Enables BF16 support in BiF (requires patched Clang)" ON)
+option(IGC_OPTION__WARNINGS_AS_ERRORS "Treat compiler warnings as errors" ON)
 # Clang patches needed for BF16 support can be found here (example for Clang 16):
 # https://github.com/intel/opencl-clang/tree/ocl-open-160/patches/clang
 
@@ -852,8 +853,17 @@ foreach(_compilerFlagName IN ITEMS "CMAKE_CXX_FLAGS" "CMAKE_C_FLAGS")
         ExceptionsEnabled
         MultiProcessorCompilation
         DeadCodeEliminate
-        TreatWarnAsErrorEnabled
   )
+
+  if(IGC_OPTION__WARNINGS_AS_ERRORS)
+    igc_config_flag_apply_settings(
+        CompilerOptions
+        "${_compilerFlagName}"
+        ALL_PATTERN ""
+        SET
+          TreatWarnAsErrorEnabled
+    )
+  endif()
 
   if(IGC_OPTION__UNIVERSAL_DRIVER)
     igc_config_flag_apply_settings(
