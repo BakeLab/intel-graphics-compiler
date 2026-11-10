@@ -6,13 +6,9 @@
 #
 #============================ end_copyright_notice =============================
 
+# BakeLab's accelerator pack targets Xe2 and newer. Keep the shared compiler
+# backends, but generate and embed optimized VC builtins only for these targets.
 set(SUPPORTED_VC_PLATFORMS
-    "XeLP"
-    "XeHPG"
-    "XeLPG"
-    "XeLPGPlus"
-    "XeHPC"
-    "XeHPCVG"
     "Xe2"
     "Xe3"
     "Xe3P"
