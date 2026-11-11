@@ -89,7 +89,7 @@ bool testDuplicates(/*const*/ llvm::GenXLiveness &Liveness) {
     llvm::errs() << "Bad live range\n";
     WrongLR->second->print(llvm::errs(), true);
     llvm::errs() << "\nWhole liveness:\n";
-    Liveness.dump();
+    Liveness.print(llvm::errs());
     llvm::errs() << "\n";
     return false;
   }
