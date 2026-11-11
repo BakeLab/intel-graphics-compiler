@@ -432,16 +432,20 @@ bool GenXVectorCombiner::runOnFunction(Function &F) {
 void GenXVectorCombiner::dumpWorkList() const {
   for (auto &List : WorkList) {
     dbgs() << "Original: ";
-    List.first->dump();
+    List.first->print(dbgs());
+    dbgs() << "\n";
     for (auto &InstPack : List.second) {
       Instruction *RdRegion = InstPack.RdRegion;
       Instruction *WrRegion = InstPack.WrRegion;
       Instruction *Operation = InstPack.Operation;
-      RdRegion->dump();
+      RdRegion->print(dbgs());
+      dbgs() << "\n";
       dbgs() << "\t";
-      Operation->dump();
+      Operation->print(dbgs());
+      dbgs() << "\n";
       dbgs() << "\t\t";
-      WrRegion->dump();
+      WrRegion->print(dbgs());
+      dbgs() << "\n";
     }
   }
 }
