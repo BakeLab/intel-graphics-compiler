@@ -273,6 +273,7 @@ To build IGC with the VC backend but without its test suite, disable it explicit
 
 | Version          | Product quality |
 |:----------------:|-----------------|
+| LLVM 23/Clang 23           | Experimental   |
 | LLVM 22/Clang 22           | Experimental   |
 | LLVM 17/Clang 17           | **Production** |
 | LLVM 16/Clang 16           | Experimental   |
@@ -289,11 +290,11 @@ To build IGC with the VC backend but without its test suite, disable it explicit
 LLVM version determines what branches are used when building dependencies.
 When checking out the components refer to the following table, replace **XX** with the LLVM version used:
 
-| Repository name       | Version specific | Branch / Git Tag     | LLVM 17 example  | LLVM 22 example  |
-|-----------------------|:----------------:|----------------------|------------------|------------------|
-| llvm-project          | -                | llvmorg-**XX**       | llvmorg-17.0.6   | llvmorg-22.1.8   |
-| vc-intrinsics         | no               | master               | master           | master           |
-| SPIRV-Tools           | no               | master               | master           | master           |
-| SPIRV-Headers         | no               | master               | master           | master           |
-| SPIRV-LLVM-Translator | yes              | llvm_release_**XX**0 | llvm_release_170 | llvm_release_220 |
-| opencl-clang          | yes              | ocl-open-**XX**0     | ocl-open-170     | ocl-open-220     |
+| Repository name       | Version specific | Branch / Git Tag     | LLVM 17 example  | LLVM 22 example  | LLVM 23 example  |
+|-----------------------|:----------------:|----------------------|------------------|------------------|------------------|
+| llvm-project          | -                | llvmorg-**XX**       | llvmorg-17.0.6   | llvmorg-22.1.8   | llvmorg-23.1.4   |
+| vc-intrinsics         | no               | master               | master           | master           | master           |
+| SPIRV-Tools           | no               | master               | master           | master           | master           |
+| SPIRV-Headers         | no               | master               | master           | master           | master           |
+| SPIRV-LLVM-Translator | yes              | llvm_release_**XX**0 | llvm_release_170 | llvm_release_220 | llvm_release_230 |
+| opencl-clang          | yes              | ocl-open-**XX**0     | ocl-open-170     | ocl-open-220     | ocl-open-230     |
